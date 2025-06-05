@@ -50,9 +50,10 @@ body {
   justify-content: space-between;
   gap: 20px;
 }
-.nav-right .profile-pic {
+.profile-pic {
   height: 30px;
   width: 30px;
+  cursor: pointer;
 }
 
 /* hero section */
@@ -117,30 +118,56 @@ filter: brightness(50%);
 }
 
 /* movie section */
-.movies-section {
+/* .movies-section {
   padding: 10px 10px;
   height: 80vh;
   display: grid;
-  /* grid-template-columns: repeat(auto-fit, 300px); */
   grid-template-columns: repeat(auto-fit,minmax(287px,1fr));
   gap: 10px;
   justify-content: center;
   align-items: center;
+} */
+
+.movies-section{
+  display:flex;
+  gap: 10px;
+  overflow: auto;
+
+
+
 }
+.movies-section::-webkit-scrollbar{
+/* background-color: #000; */
+height: 8px;
+
+}
+
+.movies-section::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+.movies-section::-webkit-scrollbar-thumb{
+  background: #b3b3b3;
+  border-radius: 10px;
+}
+
+
+
+
 .row-title {
   font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
   /* display: flex; */
   align-items: center;
-  padding: 20px ;
+  padding: 2px ;
 
 }
 
 .movie-card {
-  /* width: 300px;
-  height: 300px; */
-  border-radius: 10px;
+  min-width: 300px;
+  height: 200px;
+  border-radius: 7px;
   cursor: pointer;
   position: relative;
   background: linear-gradient(
@@ -163,8 +190,10 @@ filter: brightness(50%);
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-  overlay: #000;
+  transition:filter(brightness(0.4));
 }
+.movie-card:hover img {
+  filter: brightness(0.5);}
 .movie-title {
   position: absolute;
   bottom: 0;
@@ -179,6 +208,7 @@ filter: brightness(50%);
   align-items: center;
   justify-content: space-around;
 }
+
 
 /* .top-badge{
     color: #fff;
@@ -220,16 +250,24 @@ filter: brightness(50%);
   border-radius: 5px;
   font-size: 12px;
   font-weight: 800;
+  display: none;
 }
 
 .overlays {
   position: absolute;
   top: 50%;
   left: 10%;
+  opacity: 0;
   display: flex;
   align-items: center;
   gap: 30px;
   justify-content: center;
+   gap: 30px;
+  transition: opacity 0.3s ease-in-out;
+  
+}
+.overlays{
+  opacity: 1;
 }
 .overlays .overlay-btn {
   padding: 5px;
@@ -274,7 +312,7 @@ align-items: center;
     gap: 15px;
     font-size: 18px;
     color: #fff;
-
+ 
 }
 
 .quick-links{
@@ -295,4 +333,25 @@ align-items: center;
 .quick-links a:hover{
     color: #b3b3b3;
     border-bottom: grey 1px;
+}
+
+
+/* responsiveness */
+@media (max-width:120px){
+  .container{
+    padding: 0 10px;
+  }
+  .section-title{
+    font-size: 1.6rem;
+  }
+
+  
+}
+
+
+@media (max-width:760px) {
+  .container{
+    padding: 0 10px;
+  }
+  
 }
