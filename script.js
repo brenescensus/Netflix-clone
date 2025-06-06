@@ -1,4 +1,4 @@
-window.assEventListener('scroll',()=>{
+window.addEventListener('scroll',()=>{
     const navbar=document.querySelector('.navbar');
     if(window.scrollY>100){
         navbar.classList.add('scrolled');
